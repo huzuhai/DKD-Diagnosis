@@ -7,6 +7,8 @@
 if (!requireNamespace("rsconnect", quietly = TRUE)) {
   install.packages("rsconnect")
 }
+# install.packages('remotes')
+# remotes::install_version("xgboost", version = "1.7.5.1")
 
 library(rsconnect)
 
@@ -16,13 +18,9 @@ library(rsconnect)
 # 首次部署前，需要配置您的 shinyapps.io 账户
 # 登录 https://www.shinyapps.io/，进入 Account -> Tokens
 # 获取您的 token 和 secret
-
-# 取消下面注释并填入您的账户信息
-# rsconnect::setAccountInfo(
-#   name = "your-account-name",     # 您的 shinyapps.io 用户名
-#   token = "your-token",           # 您的 token
-#   secret = "your-secret"          # 您的 secret
-# )
+rsconnect::setAccountInfo(name='huzuhai', 
+                          token='724CE2BD9BAD44D9673ADEA987BD715C', 
+                          secret='aes6B3Y0lgxj1OgA7k6nuFkC8QavRIc3/PJAnOLV')
 
 # =============================================================================
 # 步骤 2: 部署应用
@@ -33,11 +31,21 @@ app_name <- "DKD-Predict"
 
 # 定义要上传的文件
 app_files <- c(
-  "app.R",                                   # 主应用文件
-  "data/10-Model-xgboost-all-model.rds",     # 模型文件
-  "data/11-scale-miss_value.rdata"           # 缺失值和归一化参数
+  "app.R",
+  "data/10-Model-xgboost-all-model.rds",
+  "data/11-scale-miss_value.rdata",
+  "renv.lock",
+  "renv/settings.json",
+  "renv/activate.R"
 )
 
+rsconnect::deployments()
+
+# rsconnect::forgetDeployment(
+#   name = "DKD-Predict",
+#   account = "huzuhai",
+#   server  = "shinyapps.io"
+# )
 # 部署应用
 cat("正在部署应用到 shinyapps.io...\n")
 

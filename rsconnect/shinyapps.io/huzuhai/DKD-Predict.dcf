@@ -1,0 +1,10 @@
+name: DKD-Predict
+title: DKD-Predict 糖尿病肾病智能诊断系统
+username: huzuhai
+account: huzuhai
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 16461696
+bundleId: 11468895
+url: https://huzuhai.shinyapps.io/DKD-Predict/
+version: 1

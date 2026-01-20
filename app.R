@@ -11,6 +11,7 @@ library(mlr3)
 library(mlr3learners)
 library(tidyverse)
 library(DT)
+library(xgboost)   # <-- 新增这一行
 
 # =============================================================================
 # 0. 多语言支持 - 翻译字典
